@@ -27,13 +27,27 @@ def view_employees():
     for employee in employees:
         print(employee)
 
+def search_employee():
+    employee_id = int(input("Enter Employee ID to search: "))
+
+    for employee in employees:
+        if employee["id"] == employee_id:
+            print("\nEmployee Found!")
+            print("ID:", employee["id"])
+            print("Name:", employee["name"])
+            print("Department:", employee["department"])
+            print("Salary:", employee["salary"])
+            return
+
+    print("Employee not found.")
 
 while True:
 
     print("\n===== EMPLOYEE MANAGEMENT SYSTEM =====")
     print("1. Add Employee")
     print("2. View Employees")
-    print("3. Exit")
+    print("3. Search Employee")
+    print("4. Exit")
 
     choice = input("Enter your choice: ")
 
@@ -44,7 +58,10 @@ while True:
         view_employees()
 
     elif choice == "3":
-        print("Exiting...")
+        search_employee()
+
+    elif choice == "4":
+        print("Exitting")
         break
 
     else:
